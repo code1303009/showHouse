@@ -1,0 +1,33 @@
+<!--index.wxml-->
+<view class="container">
+  <view  bindtap="gotoPhotoDetail" class="photolist-cell">
+       <image class='photoImage-cell' src = '../../images/house-detail.png'></image>
+       <div class='title' >皇城里</div>
+  </view>
+
+  <view  bindtap="gotoPhotoDetail" class="photolist-cell">
+       <image class='photoImage-cell' src = '../../images/house-detail.png'></image>
+       <div class='title'>你想要的生活</div>
+  </view>
+
+  <view  bindtap="gotoPhotoDetail" class="photolist-cell">
+       <image class='photoImage-cell' src = '../../images/house-detail.png'></image>
+       <div class='title'>煮酒论春秋</div>
+  </view>
+
+  <view  bindtap="gotoPhotoDetail" class="photolist-cell">
+       <image class='photoImage-cell' src = '../../images/house-detail.png'></image>
+       <div class='title'>幸福里</div>
+  </view>
+
+  <view  bindtap="gotoPhotoDetail" class="photolist-cell">
+       <image class='photoImage-cell' src = '../../images/house-detail.png'></image>
+       <div class='title'>大学城-北欧风</div>
+  </view>
+
+  <view  bindtap="gotoPhotoDetail" class="photolist-cell">
+       <image class='photoImage-cell' src = '../../images/house-detail.png'></image>
+       <div class='title'>少女心</div>
+  </view>
+
+</view>

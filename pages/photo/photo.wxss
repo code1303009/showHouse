@@ -1,0 +1,32 @@
+/**photo.wxss**/
+.photolist-cell{
+  width:  640rpx;
+  height: 400rpx;
+  margin: 20rpx;
+  background: white;
+  border-radius:2%; 
+}
+
+.photoImage-cell{
+  width: 240rpx;
+  height: 360rpx;
+  margin-top: 20rpx;
+  margin-left: 15rpx;
+  background-color: white;
+  border-radius:8%;
+  border-width: 1rpx;
+  border-color: gray; 
+}
+
+.title{
+  position: relative;
+  top: -300rpx;
+  left: 15rpx;  
+  width: 100%;
+  height: 100rpx;
+  margin: 0 auto;
+  font: 30;
+  background-color: white;
+  align-items: center;
+  flex-direction: column; 
+}

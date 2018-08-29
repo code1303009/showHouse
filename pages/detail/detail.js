@@ -1,10 +1,7 @@
+var imageList = ['../../images/huangchengli/huangchengli_', '../../images/shenghuo/shenghuo_', '../../images/zhujiu/zhujiu_', '../../images/xingfuli/xingfuli_', '../../images/shenbei/shenbei_', '../../images/shaonvxin/shaonvxin_']
+
 Page({
   data: {
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
     indicatorDots: true,
     autoplay: true,
     interval: 3000,
@@ -39,8 +36,21 @@ Page({
       complete: function(res) {},
     })
   },
-  onLoad: function(){
+  onLoad: function (options){
     var that = this.data;
+    console.log(options.key)
+    var indexId = options.key
+    var imgCount = options.imgCount    
+    var imgList = []
+    for (var i = 0; i < imgCount; i++) {
+        var imgUrl = imageList[indexId]+i+'.jpg'
+        imgList.push(imgUrl)
+    }
+    this.setData({
+      imgUrls: imgList,
+      scroHeight: 1000
+    })
+
     // wx.getSystemInfo({
       // success: function(res) {
       // imageHeight = res.screenHeight*40%

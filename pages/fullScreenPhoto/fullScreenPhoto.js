@@ -17,6 +17,13 @@ Page({
     //   fail: function (res) { },
     //   complete: function (res) { },
     // }),
+    wx.getSystemInfo({
+      success: function(res) {
+        this.setData({
+          imageHeight:res.windowHeight
+        })
+      }
+    })
     console.log(options.key)
   },
 

@@ -4,7 +4,7 @@
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
   <block wx:for="{{imgUrls}}">
     <swiper-item>
-      <image src="{{item}}" class="slide-image" bindtap="photoTapClick"/>
+      <image style="width: 100%; height:{{scroHeight}};background-color: #eeeeee;" mode='aspectFill' src="{{item}}" bindtap="photoTapClick"/>
     </swiper-item>
   </block>
 </swiper>

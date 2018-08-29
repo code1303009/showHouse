@@ -1,3 +1,3 @@
 <view class="container" >
-<image class="screenImage"></image>
+<image style="width:100%;height:900" class="screenImage"></image>
 </view>

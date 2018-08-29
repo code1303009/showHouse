@@ -1,5 +1,6 @@
 // 
 var itemList = ['皇城里\n\n参考价￥388', '你想要的生活\n\n参考价￥388', '煮酒论春秋\n\n参考价￥388', '幸福里\n\n参考价￥388','大学城-北欧风\n\n参考价￥388 ','少女心\n\n参考价￥268']
+var imgCountList = [14,16,15,21,22,17]
 Page({
   data: {
     Height: 0,
@@ -58,87 +59,90 @@ Page({
             id: 0,
             latitude: 41.806021,
             longitude: 123.470073,
-            iconPath: '../../images/house.png',
+            iconPath: '../../images/huangchengli/huangchengli_0.jpg',
             width: 30,
             height: 30,
             callout: {
               content: "皇城里",
               color: "#000",
-              fontSize: 20,
+              fontSize: 15,
+              borderRadius : 5,
+              padding : 10,
             },
-            // label: {
-            //   color: "#000",
-            //   fontSize: 12,
-            //   content: "皇城里",
-            //   x: 41.806021,
-            //   y: 123.470073
-            // }
           }, {
             // 41.805890,123.469950
             id: 1,
             latitude: 41.805890,
             longitude: 123.469950,
-            iconPath: '../../images/house.png',
+            iconPath: '../../images/shenghuo/shenghuo_0.jpg',
             width: 30,
             height: 30,
             callout: {
               content: "你想要的生活",
               color: "#000",
-              fontSize: 20,
+              fontSize: 15,
+              borderRadius: 5,
+              padding: 10,
              }
             }, {
               // 41.802500,123.467980
               id: 2,
               latitude: 41.802500,
               longitude: 123.467980,
-              iconPath: '../../images/house.png',
+              iconPath: '../../images/zhujiu/zhujiu_0.jpg',
               width: 30,
               height: 30,
               callout: {
                 content: "煮酒轮春秋",
                 color: "#000",
-                fontSize: 20,
-                bgColor: "#fff",
-                boxShadow: "2px 2px 10px #aaa"
+                fontSize: 15,
+                borderRadius: 5,
+                padding: 10,
               }
           }, {
             // 41.803760,123.338890
             id: 3,
             latitude: 41.803760,
             longitude: 123.338890,
-            iconPath: '../../images/house.png',
+            iconPath: '../../images/xingfuli/xingfuli_0.jpg',
             width: 30,
             height: 30,
             callout: {
               content: "幸福里",
               color: "#000",
-              fontSize: 20,
+              fontSize: 15,
+              borderRadius: 5,
+              padding: 10,
             }
             }, {
               // 41.922932,123.402664
               id: 4,
               latitude: 41.922932,
               longitude: 123.402664,
-              iconPath: '../../images/house.png',
+              iconPath: '../../images/shenbei/shenbei_0.jpg',
               width: 30,
               height: 30,
               callout: {
                 content: "北欧风近方特 大学城",
                 color: "#000",
-                fontSize: 30,
+                fontSize: 15,
+                borderRadius: 5,
+                padding: 10,
               }
           }, {
             // 41.788715,123.399319
             id: 5,
             latitude: 41.788715,
             longitude: 123.399319,
-            iconPath: '../../images/house.png',
+            iconPath: '../../images/shaonvxin/shaonvxin_0.jpg',
             width: 30,
             height: 30,
             callout: {
               content: "少女心",
               color: "#000",
-              fontSize: 20,
+              fontSize: 15,
+              borderRadius: 5,
+              padding: 10,
             }
           }
          ],
@@ -156,15 +160,15 @@ Page({
 
   //点击merkers
   markertap(e) {
-    console.log(e.markerId)
-
+    var urlStr = "../detail/detail?key="+e.markerId+'&imgCount='+imgCountList[e.markerId];
+    console.log(urlStr)
     wx.showActionSheet({
       itemList: [itemList[e.markerId]],
       success: function (res) {
         console.log(res.tapIndex)
         if (res.tapIndex == 0) {
           wx.navigateTo({
-            url: '../detail/detail',
+            url: urlStr,
           })
         }
       },

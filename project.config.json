@@ -12,8 +12,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.0.4",
-	"appid": "wx76b2686222f5df2b",
-	"projectname": "%E6%88%91%E7%9A%84%E5%B0%8F%E7%A8%8B%E5%BA%8F",
+	"appid": "touristappid",
+	"projectname": "showHouse",
 	"isGameTourist": false,
 	"condition": {
 		"search": {

@@ -6,7 +6,6 @@ Page({
     autoplay: true,
     interval: 3000,
     duration: 2000,
-    // imageHeight:150
   },
   changeIndicatorDots: function (e) {
     this.setData({
@@ -29,8 +28,10 @@ Page({
     })
   },
   photoTapClick: function (e){
+    var that = this;
+    console.log(e)
     wx.navigateTo({
-      url: '../fullScreenPhoto/fullScreenPhoto?key=666',
+      url: '../fullScreenPhoto/fullScreenPhoto?url='+e.currentTarget.id,
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},
@@ -48,14 +49,7 @@ Page({
     }
     this.setData({
       imgUrls: imgList,
-      scroHeight: 1000
     })
-
-    // wx.getSystemInfo({
-      // success: function(res) {
-      // imageHeight = res.screenHeight*40%
-      // }
-    // })
   }
 
 })

@@ -11,8 +11,8 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.4",
-	"appid": "touristappid",
+	"libVersion": "2.2.5",
+	"appid": "wx76b2686222f5df2b",
 	"projectname": "showHouse",
 	"isGameTourist": false,
 	"condition": {
@@ -24,13 +24,23 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "二维码",
+					"pathName": "pages/map/map"
+				}
+			]
 		}
 	}
 }

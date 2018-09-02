@@ -1,8 +1,77 @@
 // 
 var itemList = ['皇城里\n\n参考价￥388', '你想要的生活\n\n参考价￥388', '煮酒论春秋\n\n参考价￥388', '幸福里\n\n参考价￥388','大学城-北欧风\n\n参考价￥388 ','少女心\n\n参考价￥268']
 var imgCountList = [14,16,15,21,22,17]
+
+var houseLocations = [
+  {
+    id:0,
+    latitude: 41.806021,
+    longitude: 123.470073,
+    iconPath: '../../images/huangchengli/huangchengli_0.jpg',
+    name:"皇城里",
+    description:"这是描述",
+    price:488
+  },
+  {
+    id: 1,
+    latitude: 41.805890,
+    longitude: 123.469950,
+    iconPath: '../../images/shenghuo/shenghuo_0.jpg',
+    name: "你想要的生活",
+    description: "这是描述",
+    price: 488
+  },
+  {
+    id: 2,
+    latitude: 41.802500,
+    longitude: 123.467980,
+    iconPath: '../../images/zhujiu/zhujiu_0.jpg',
+    name: "煮酒轮春秋",
+    description: "这是描述",
+    price: 488
+  },
+  {
+    id: 3,
+    latitude: 41.803760,
+    longitude: 123.338890,
+    iconPath: '../../images/xingfuli/xingfuli_0.jpg',
+    name: "幸福里",
+    description: "这是描述",
+    price: 488
+  },
+  {
+    id: 4,
+    latitude: 41.922932,
+    longitude: 123.402664,
+    iconPath: '../../images/shenbei/shenbei_0.jpg',
+    name: "沈北大学城",
+    description: "这是描述",
+    price: 488
+  },
+  {
+    id: 5,
+    latitude: 41.788715,
+    longitude: 123.399319,
+    iconPath: '../../images/shaonvxin/shaonvxin_0.jpg',
+    name: "少女心",
+    description: "这是描述",
+    price: 488
+  }
+]
+
+/**
+ * 页面代码
+*/
 Page({
   data: {
+    showModal: {
+      id:0,
+      show:false,
+      pic:'',
+      title:'这是题目',
+      description:'这是描述',
+      price:'￥0'
+    },
     Height: 0,
     scale: 16,
     latitude: "",
@@ -51,107 +120,34 @@ Page({
     wx.getLocation({
       type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
       success: function (res) {
-
+        var markerlist = []
+        for (var i = 0;i<houseLocations.length;i++)
+        {
+          var marker = 
+          {
+                 id: i,
+               latitude: houseLocations[i].latitude,
+               longitude: houseLocations[i].longitude,
+               iconPath: houseLocations[i].iconPath,
+               width: 30,
+               height: 30,
+               callout: {
+                  content: houseLocations[i].name,
+                  color: "#000",
+                  fontSize: 15,
+                  borderRadius : 5,
+                  padding : 10,
+               }
+          }
+            markerlist.push(marker)
+        }
         _this.setData({
           latitude: res.latitude,
           longitude: res.longitude,
-          markers: [{
-            id: 0,
-            latitude: 41.806021,
-            longitude: 123.470073,
-            iconPath: '../../images/huangchengli/huangchengli_0.jpg',
-            width: 30,
-            height: 30,
-            callout: {
-              content: "皇城里",
-              color: "#000",
-              fontSize: 15,
-              borderRadius : 5,
-              padding : 10,
-            },
-          }, {
-            // 41.805890,123.469950
-            id: 1,
-            latitude: 41.805890,
-            longitude: 123.469950,
-            iconPath: '../../images/shenghuo/shenghuo_0.jpg',
-            width: 30,
-            height: 30,
-            callout: {
-              content: "你想要的生活",
-              color: "#000",
-              fontSize: 15,
-              borderRadius: 5,
-              padding: 10,
-             }
-            }, {
-              // 41.802500,123.467980
-              id: 2,
-              latitude: 41.802500,
-              longitude: 123.467980,
-              iconPath: '../../images/zhujiu/zhujiu_0.jpg',
-              width: 30,
-              height: 30,
-              callout: {
-                content: "煮酒轮春秋",
-                color: "#000",
-                fontSize: 15,
-                borderRadius: 5,
-                padding: 10,
-              }
-          }, {
-            // 41.803760,123.338890
-            id: 3,
-            latitude: 41.803760,
-            longitude: 123.338890,
-            iconPath: '../../images/xingfuli/xingfuli_0.jpg',
-            width: 30,
-            height: 30,
-            callout: {
-              content: "幸福里",
-              color: "#000",
-              fontSize: 15,
-              borderRadius: 5,
-              padding: 10,
-            }
-            }, {
-              // 41.922932,123.402664
-              id: 4,
-              latitude: 41.922932,
-              longitude: 123.402664,
-              iconPath: '../../images/shenbei/shenbei_0.jpg',
-              width: 30,
-              height: 30,
-              callout: {
-                content: "北欧风近方特 大学城",
-                color: "#000",
-                fontSize: 15,
-                borderRadius: 5,
-                padding: 10,
-              }
-          }, {
-            // 41.788715,123.399319
-            id: 5,
-            latitude: 41.788715,
-            longitude: 123.399319,
-            iconPath: '../../images/shaonvxin/shaonvxin_0.jpg',
-            width: 30,
-            height: 30,
-            callout: {
-              content: "少女心",
-              color: "#000",
-              fontSize: 15,
-              borderRadius: 5,
-              padding: 10,
-            }
-          }
-         ],
+          markers:markerlist
         })
       }
-
     })
-
-
   },
 
   regionchange(e) {
@@ -160,20 +156,15 @@ Page({
 
   //点击merkers
   markertap(e) {
-    var urlStr = "../detail/detail?key="+e.markerId+'&imgCount='+imgCountList[e.markerId];
-    console.log(urlStr)
-    wx.showActionSheet({
-      itemList: [itemList[e.markerId]],
-      success: function (res) {
-        console.log(res.tapIndex)
-        if (res.tapIndex == 0) {
-          wx.navigateTo({
-            url: urlStr,
-          })
-        }
-      },
-      fail: function (res) {
-        console.log(res.errMsg)
+    console.log(houseLocations[e.markerId])
+    this.setData({
+      showModal: {
+        id:e.markerId,
+        show: true,
+        pic: houseLocations[e.markerId].iconPath,
+        title: houseLocations[e.markerId].name,
+        description: houseLocations[e.markerId].description,
+        price: '￥'+houseLocations[e.markerId].price+'/晚'
       }
     })
 
@@ -193,6 +184,33 @@ Page({
       })
     }
   },
+  /**
+  * 弹出框蒙层截断touchmove事件
+  */
+  preventTouchMove: function () {
+
+  },
+  /**
+   * 隐藏模态对话框
+   */
+  hideModal: function () {
+    this.setData({
+      showModal :{
+        show : false
+      }
+    });
+  },
+  /**
+   * 跳转到房屋相册列表
+  */
+  gotoDetailVC: function (e){
+    console.log(this.data.showModal.id)
+    var urlStr = "../detail/detail?key=" + this.data.showModal.id + '&imgCount=' + imgCountList[this.data.showModal.id];
+    wx.navigateTo({
+      url: urlStr,
+    })
+  }
+
 })
 
 

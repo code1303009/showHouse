@@ -1,4 +1,6 @@
 var imageList = ['../../images/huangchengli/huangchengli_', '../../images/shenghuo/shenghuo_', '../../images/zhujiu/zhujiu_', '../../images/xingfuli/xingfuli_', '../../images/shenbei/shenbei_', '../../images/shaonvxin/shaonvxin_']
+var houseNameList = ['皇城里','你想要的生活','煮酒论春秋','幸福里','沈北大学城','少女心']
+var naviTitle = "民宿详情"
 
 Page({
   data: {
@@ -31,7 +33,7 @@ Page({
     var that = this;
     console.log(e)
     wx.navigateTo({
-      url: '../fullScreenPhoto/fullScreenPhoto?url='+e.currentTarget.id,
+      url: '../fullScreenPhoto/fullScreenPhoto?url='+e.currentTarget.id+'&naviTitle='+naviTitle,
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},
@@ -39,8 +41,9 @@ Page({
   },
   onLoad: function (options){
     var that = this.data;
-    console.log(options.key)
+    console.log(options)
     var indexId = options.key
+    naviTitle = houseNameList[indexId]
     var imgCount = options.imgCount    
     var imgList = []
     for (var i = 0; i < imgCount; i++) {
@@ -49,6 +52,10 @@ Page({
     }
     this.setData({
       imgUrls: imgList,
+    })
+
+    wx.setNavigationBarTitle({
+      title: naviTitle,
     })
   }
 

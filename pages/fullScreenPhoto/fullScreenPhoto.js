@@ -11,23 +11,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '详情图片',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    }),
-    // wx.getSystemInfo({
-    //   success: function(res) {
-    //     this.setData({
-    //       imageHeight:res.windowHeight
-    //     })
-    //   }
-    // })
+    
     console.log(options)
     var url = options.url
+    var title = options.naviTitle
     this.setData({
-      screenImageShow:url
+      screenImageShow: url
+    })
+
+    wx.setNavigationBarTitle({
+      title: title,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { }
     })
   },
 

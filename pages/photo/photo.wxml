@@ -1,33 +1,8 @@
 <!--index.wxml-->
 <view class="container">
-  <view  bindtap="gotoPhotoDetail" class="photolist-cell">
-       <image class='photoImage-cell' src = '../../images/house-detail.png'></image>
-       <div class='title' >皇城里</div>
+  <view wx:for="{{listArray}}" wx:for_item="item.pic"  class='photolist-cell' bindtap='gotoPhotoDetail' id="{{item.id}}">
+        <image class='photoImage-cell' src="{{item.pic}}"> </image>
+        <label class='title'>{{item.title}}</label>
+        <label class='message'>{{item.message}}</label>
   </view>
-
-  <view  bindtap="gotoPhotoDetail" class="photolist-cell">
-       <image class='photoImage-cell' src = '../../images/house-detail.png'></image>
-       <div class='title'>你想要的生活</div>
-  </view>
-
-  <view  bindtap="gotoPhotoDetail" class="photolist-cell">
-       <image class='photoImage-cell' src = '../../images/house-detail.png'></image>
-       <div class='title'>煮酒论春秋</div>
-  </view>
-
-  <view  bindtap="gotoPhotoDetail" class="photolist-cell">
-       <image class='photoImage-cell' src = '../../images/house-detail.png'></image>
-       <div class='title'>幸福里</div>
-  </view>
-
-  <view  bindtap="gotoPhotoDetail" class="photolist-cell">
-       <image class='photoImage-cell' src = '../../images/house-detail.png'></image>
-       <div class='title'>大学城-北欧风</div>
-  </view>
-
-  <view  bindtap="gotoPhotoDetail" class="photolist-cell">
-       <image class='photoImage-cell' src = '../../images/house-detail.png'></image>
-       <div class='title'>少女心</div>
-  </view>
-
 </view>

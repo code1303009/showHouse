@@ -11,5 +11,14 @@ bindmarkertap="markertap"
 polyline="{{polyline}}" 
 bindregionchange="regionchange" 
 show-location style="width: 100%; height: {{view.Height}}px;">
-
 </map>
+
+
+<!--弹窗-->
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal.show}}"></view>
+<view class="modal-dialog" wx:if="{{showModal.show}}" bindtap="gotoDetailVC" id>
+    <image class="alert-image" src="{{showModal.pic}}"></image>
+    <view class="modal-title">{{showModal.title}}</view>
+    <view class="modal-price">{{showModal.price}}</view>
+    <view class="modal-description">{{showModal.description}}</view>
+</view>

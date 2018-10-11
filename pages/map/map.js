@@ -67,8 +67,8 @@ Page({
                   latitude: houseLocations[i].latitude,
                   longitude: houseLocations[i].longitude,
                   iconPath: houseLocations[i].houseCoverImage,
-                  width: 30,
-                  height: 30,
+                  width: 60,
+                  height: 60,
                   callout: {
                     content: houseLocations[i].houseName,
                     color: "#000",
@@ -106,10 +106,11 @@ Page({
     console.log("regionchange===" + e.type)
   },
 
-  //点击merkers
+  //点击markers
   markertap(e) {
+    var that = this
     console.log(houseLocations[e.markerId])
-    this.setData({
+    that.setData({
       showModal: {
         id:e.markerId,
         show: true,
@@ -119,7 +120,17 @@ Page({
         price: '￥'+houseLocations[e.markerId].housePrice+'/晚'
       }
     })
+    // wx.showModal({
+    //   title: e.markerId,
+    //   content: '',
+    // })
 
+    // wx.showToast({
+    //   title: '',
+    // })
+
+    // var currentStatu = e.currentTarget.dataset.statu;
+    // this.util(currentStatu)
   },
 
   //点击缩放按钮动态请求数据
@@ -161,8 +172,55 @@ Page({
     wx.navigateTo({
       url: urlStr,
     })
-  }
+  },
+  util: function (currentStatu) {
+    /* 动画部分 */
+    // 第1步：创建动画实例 
+    var animation = wx.createAnimation({
+      duration: 200,  //动画时长
+      timingFunction: "linear", //线性
+      delay: 0  //0则不延迟
+    });
 
+    // 第2步：这个动画实例赋给当前的动画实例
+    this.animation = animation;
+
+    // 第3步：执行第一组动画
+    animation.opacity(0).rotateX(-100).step();
+
+    // 第4步：导出动画对象赋给数据对象储存
+    this.setData({
+      animationData: animation.export()
+    })
+
+    // 第5步：设置定时器到指定时候后，执行第二组动画
+    setTimeout(function () {
+      // 执行第二组动画
+      animation.opacity(1).rotateX(0).step();
+      // 给数据对象储存的第一组动画，更替为执行完第二组动画的动画对象
+      this.setData({
+        animationData: animation
+      })
+
+      //关闭
+      if (currentStatu == "close") {
+        this.setData(
+          {
+            showModalStatus: false
+          }
+        );
+      }
+    }.bind(this), 200)
+
+    // 显示
+    if (currentStatu == "open") {
+      this.setData(
+        {
+          showModalStatus: true
+        }
+      );
+    }
+  }
 })
 
 

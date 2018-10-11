@@ -15,10 +15,10 @@ show-location style="width: 100%; height: {{view.Height}}px;">
 
 
 <!--弹窗-->
-<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal.show}}"></view>
-<view class="modal-dialog" wx:if="{{showModal.show}}" bindtap="gotoDetailVC" id>
-    <image class="alert-image" src="{{showModal.pic}}"></image>
-    <view class="modal-title">{{showModal.title}}</view>
-    <view class="modal-price">{{showModal.price}}</view>
-    <view class="modal-description">{{showModal.description}}</view>
-</view>
+<cover-view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal.show}}"></cover-view>
+<cover-view class="modal-dialog" animation="{{animationData}}" wx:if="{{showModal.show}}" bindtap="gotoDetailVC" id>
+    <cover-image class="alert-image" src="{{showModal.pic}}"></cover-image>
+    <cover-view class="modal-title">{{showModal.title}}</cover-view>
+    <cover-view class="modal-price">{{showModal.price}}</cover-view>
+    <cover-view class="modal-description">{{showModal.description}}</cover-view>
+</cover-view>

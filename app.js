@@ -10,6 +10,13 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+
+    wx.cloud.init({
+      //环境ID
+      // env: 'publish',
+      //获取调用api者的信息
+      traceUser: true,
+    })
   },
 
   /**

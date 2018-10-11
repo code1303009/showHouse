@@ -11,7 +11,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.2.5",
+	"libVersion": "2.3.0",
 	"appid": "wx76b2686222f5df2b",
 	"projectname": "showHouse",
 	"isGameTourist": false,

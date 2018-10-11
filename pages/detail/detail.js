@@ -1,9 +1,13 @@
-var imageList = ['../../images/huangchengli/huangchengli_', '../../images/shenghuo/shenghuo_', '../../images/zhujiu/zhujiu_', '../../images/xingfuli/xingfuli_', '../../images/shenbei/shenbei_', '../../images/shaonvxin/shaonvxin_']
-var houseNameList = ['皇城里','你想要的生活','煮酒论春秋','幸福里','沈北大学城','少女心']
-var naviTitle = "民宿详情"
+var naviTitle = "民宿详情";
+var houseDetailList = []
 
 Page({
   data: {
+    houseDetailPicList: [
+      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+    ],
     indicatorDots: true,
     autoplay: true,
     interval: 3000,
@@ -29,6 +33,9 @@ Page({
       duration: e.detail.value
     })
   },
+  imgUrls:function (e){
+
+  },
   photoTapClick: function (e){
     var that = this;
     console.log(e)
@@ -40,22 +47,33 @@ Page({
     })
   },
   onLoad: function (options){
-    var that = this.data;
+    var that = this;
     console.log(options)
-    var indexId = options.key
-    naviTitle = houseNameList[indexId]
-    var imgCount = options.imgCount    
-    var imgList = []
-    for (var i = 0; i < imgCount; i++) {
-        var imgUrl = imageList[indexId]+i+'.jpg'
-        imgList.push(imgUrl)
-    }
-    this.setData({
-      imgUrls: imgList,
+
+    const db = wx.cloud.database({
+      env: 'publish-c39860'
     })
 
-    wx.setNavigationBarTitle({
-      title: naviTitle,
+    var imgList = []
+    db.collection("houseDetail").doc().get({
+      success: function (res) {
+        houseDetailList = res.data["houseList"]
+        //获取房屋详情model
+        var houseDetailModel = houseDetailList[options.key]
+        console.log(houseDetailModel)
+        naviTitle = houseDetailModel["houseName"]
+        for (var i = 0; i < houseDetailModel["housePicCount"]; i++) {
+          imgList.push(houseDetailModel["housePicPrefix"] + i + '.jpg')
+        }
+
+        wx.setNavigationBarTitle({
+          title: naviTitle,
+        })
+
+        that.setData({
+          houseDetailPicList: imgList,
+        })
+      }
     })
   }
 

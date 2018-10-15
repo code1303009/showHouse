@@ -20,3 +20,22 @@
   background-color: green;
   box-sizing: border-box; */
 }
+
+.house-details-content {
+  display: -webkit-box;
+  color: #4d4d4d;
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+  margin-top: 24rpx;
+  line-height: 52rpx;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+/* .content-all {
+}
+.content-breif {
+  -webkit-line-clamp: 4; //显示几行
+} */

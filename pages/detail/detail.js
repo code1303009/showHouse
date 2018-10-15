@@ -4,6 +4,7 @@ var houseDetailList = []
 Page({
   data: {
     houseDetailPicList: [],
+    houseDescription:"",
     indicatorDots: true,
     autoplay: true,
     interval: 3000,
@@ -68,6 +69,7 @@ Page({
 
         that.setData({
           houseDetailPicList: imgList,
+          houseDescription:houseDetailModel.houseDescription
         })
       }
     })

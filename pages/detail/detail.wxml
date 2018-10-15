@@ -6,4 +6,9 @@
       <image style="width: 100%; height:100%;background-color: #eeeeee;" mode='aspectFill' src="{{item}}" id="{{item}}" bindtap="photoTapClick"/>
     </swiper-item>
 </swiper>
+
+<scroll-view>
+<text class='house-details-content'>{{houseDescription}}</text>
+</scroll-view>
+
 </view>

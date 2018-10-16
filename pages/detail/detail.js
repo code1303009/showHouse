@@ -63,13 +63,15 @@ Page({
           imgList.push(houseDetailModel["housePicPrefix"] + i + '.jpg')
         }
 
+        var descStr = houseDetailModel.houseDescription.split('&hc').join('\n');
+
         wx.setNavigationBarTitle({
           title: naviTitle,
         })
 
         that.setData({
           houseDetailPicList: imgList,
-          houseDescription:houseDetailModel.houseDescription
+          houseDescription:descStr,
         })
       }
     })

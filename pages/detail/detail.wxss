@@ -22,7 +22,7 @@
 }
 
 .house-details-content {
-  display: -webkit-box;
+  /* display: -webkit-box; */
   color: #4d4d4d;
   margin-left: 24rpx;
   margin-right: 24rpx;
@@ -34,8 +34,3 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
 }
-/* .content-all {
-}
-.content-breif {
-  -webkit-line-clamp: 4; //显示几行
-} */

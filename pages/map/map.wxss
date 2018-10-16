@@ -50,11 +50,13 @@
 
 .modal-description{
   padding-top: 5rpx;
-  font-size: 18rpx;
+  padding-left: 5%;
+  padding-right: 5%;
+  font-size: 22rpx;
   color: #030303;
   text-align: center;
-  display: -webkit-box; 
+  /* display: -webkit-box; 
   -webkit-box-orient: vertical; 
   -webkit-line-clamp: 4; 
-  overflow: hidden; 
+  overflow: hidden;  */
 }

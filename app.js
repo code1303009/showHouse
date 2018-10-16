@@ -13,7 +13,7 @@ App({
 
     wx.cloud.init({
       //环境ID
-      // env: 'publish',
+      env: 'publish-c39860',
       //获取调用api者的信息
       traceUser: true,
     })

@@ -1,10 +1,12 @@
 <!--index.wxml-->
-<view class="container">
-  <view wx:for="{{listArray}}" wx:for_item="item.housePic"  class='photolist-cell' bindtap='gotoPhotoDetail' id="{{item.houseId}}">
-        <image class='photoImage-cell' src="{{item.housePic}}"> </image>
+<view class='container'>
+  <view wx:for='{{listArray}}' wx:key='*this' wx:for_item='item.housePic'  class='photolist-cell' bindtap='gotoPhotoDetail' id='{{item.houseId}}'>
+        <image class='photoImage-cell' src='{{item.housePic}}'></image>
         <view class='content'>
            <view class='title'>{{item.houseName}}</view>
-           <view class='message'>{{item.houseDescription}}</view>
+           <view class='message'>
+             <label class='desctext'>{{item.houseDescription}}</label>
+           </view>
         </view>
   </view>
 </view>

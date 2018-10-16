@@ -34,7 +34,7 @@ Page({
 
   },
   photoTapClick: function (e){
-    var that = this;
+    var that = this
     console.log(e)
     wx.navigateTo({
       url: '../fullScreenPhoto/fullScreenPhoto?url='+e.currentTarget.id+'&naviTitle='+naviTitle,
@@ -44,7 +44,7 @@ Page({
     })
   },
   onLoad: function (options){
-    var that = this;
+    var that = this
     console.log(options)
 
     const db = wx.cloud.database({
@@ -63,7 +63,7 @@ Page({
           imgList.push(houseDetailModel["housePicPrefix"] + i + '.jpg')
         }
 
-        var descStr = houseDetailModel.houseDescription.split('&hc').join('\n');
+        var descStr = houseDetailModel.houseDescription.split('&hc').join('\n')
 
         wx.setNavigationBarTitle({
           title: naviTitle,
@@ -71,7 +71,7 @@ Page({
 
         that.setData({
           houseDetailPicList: imgList,
-          houseDescription:descStr,
+          // houseDescription:descStr,
         })
       }
     })

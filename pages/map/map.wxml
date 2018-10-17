@@ -1,9 +1,9 @@
 <!-- <map>.js-->
+<!-- controls="{{controls}}"  -->
 
 <map id="map" 
 longitude="{{longitude}}" latitude="{{latitude}}" 
 scale="{{scale}}" 
-controls="{{controls}}" 
 bindcontroltap="controltap" 
 markers="{{markers}}" 
 circles="{{circles}}" 

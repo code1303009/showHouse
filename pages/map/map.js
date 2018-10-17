@@ -62,7 +62,6 @@ Page({
           success: function (res) {
             var markerlist = []
             for (var i = 0; i < houseLocations.length; i++) {
-              // console.log(houseLocations[i].houseCoverImage)
               var marker =
                 {
                   id: i,
@@ -105,13 +104,12 @@ Page({
   },
 
   regionchange(e) {
-    console.log("regionchange===" + e.type)
+    // console.log("regionchange===" + e.type)
   },
 
   //点击markers
   markertap(e) {
     var that = this
-    console.log(houseLocations[e.markerId])
 
     var descStr = houseLocations[e.markerId].houseDescription.split('&hc').join('\n')
 
@@ -132,7 +130,6 @@ Page({
   //点击缩放按钮动态请求数据
   controltap(e) {
     var that = this;
-    console.log("scale===" + this.data.scale)
     if (e.controlId === 1) {
       that.setData({
         scale: --this.data.scale
@@ -163,7 +160,6 @@ Page({
    * 跳转到房屋相册列表
   */
   gotoDetailVC: function (e){
-    console.log(this.data.showModal.id)
     var urlStr = "../detail/detail?key=" + this.data.showModal.id;
     wx.navigateTo({
       url: urlStr,

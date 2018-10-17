@@ -4,19 +4,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    housePicList:[],
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
-    console.log(options)
-    var url = options.url
+    var indexId = options.indexId
     var title = options.naviTitle
+    var picPrefix = options.picPrefix
+    var picCount = options.picCount
+    // console.log(options)
+    var picList = []
+    for (var i = 0;i<picCount;i++){
+      picList.push(picPrefix + i + '.jpg')
+    }
+    var url = picList[indexId]
+
     this.setData({
-      screenImageShow: url
+      housePicList:picList
     })
 
     wx.setNavigationBarTitle({

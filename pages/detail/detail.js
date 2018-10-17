@@ -1,5 +1,7 @@
 var naviTitle = "民宿详情";
 var houseDetailList = []
+var houseDetailModel = {}
+var picList = []
 
 Page({
   data: {
@@ -30,22 +32,22 @@ Page({
       duration: e.detail.value
     })
   },
-  imgUrls:function (e){
-
-  },
   photoTapClick: function (e){
     var that = this
-    console.log(e)
-    wx.navigateTo({
-      url: '../fullScreenPhoto/fullScreenPhoto?url='+e.currentTarget.id+'&naviTitle='+naviTitle,
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+    var indexStr_after = e.currentTarget.id.split('_')[1]//获取"_"号分割的字符串尾部的字符串
+    var indexId = indexStr_after.split('.')[0]
+
+    wx.previewImage({
+      current: e.currentTarget.id,
+      urls: picList,
     })
+
+    // wx.navigateTo({
+    //   url: '../fullScreenPhoto/fullScreenPhoto?indexId=' + indexId + '&naviTitle=' + naviTitle + '&picPrefix=' + houseDetailModel.housePicPrefix + '&picCount=' + houseDetailModel.housePicCount,
+    // })
   },
   onLoad: function (options){
     var that = this
-    console.log(options)
 
     const db = wx.cloud.database({
       env: 'publish-c39860'
@@ -56,8 +58,7 @@ Page({
       success: function (res) {
         houseDetailList = res.data["houseList"]
         //获取房屋详情model
-        var houseDetailModel = houseDetailList[options.key]
-        console.log(houseDetailModel)
+        houseDetailModel = houseDetailList[options.key]
         naviTitle = houseDetailModel["houseName"]
         for (var i = 0; i < houseDetailModel["housePicCount"]; i++) {
           imgList.push(houseDetailModel["housePicPrefix"] + i + '.jpg')
@@ -69,9 +70,11 @@ Page({
           title: naviTitle,
         })
 
+        picList = imgList
+
         that.setData({
           houseDetailPicList: imgList,
-          // houseDescription:descStr,
+          houseDescription:descStr,
         })
       }
     })

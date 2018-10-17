@@ -1,3 +1,9 @@
-<view class="empty_tip" >
-<image class="screenImage" src="{{screenImageShow}}" mode='aspectFit'></image>
+
+<view class='empty_tip'> 
+  <swiper style='height:100%'>
+    <swiper-item wx:for="{{housePicList}}" wx:key="*this">
+       <image src="{{item}}" class="screenImage" mode='aspectFit' width="100%" height="100%"/>
+    </swiper-item>
+  </swiper>
 </view>
+

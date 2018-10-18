@@ -1,35 +1,52 @@
+var houseTotalPics = []
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    housePicList:[],
+    picHeader:"",
+    picList:[]
+  },
+  /**
+   * 查看大图
+  */
+  lookBigPic: function (e) {
+    var indexStr_after = e.currentTarget.id.split('_')[1]//获取"_"号分割的字符串尾部的字符串
+    var indexId = indexStr_after.split('.')[0]
+
+    wx.previewImage({
+      current: e.currentTarget.id,
+      urls: houseTotalPics,
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var indexId = options.indexId
     var title = options.naviTitle
     var picPrefix = options.picPrefix
     var picCount = options.picCount
     // console.log(options)
-    var picList = []
-    for (var i = 0;i<picCount;i++){
-      picList.push(picPrefix + i + '.jpg')
+    var housePicList = []
+    var houseHeaderPic = ""
+    for (var i = 0; i < picCount; i++) {
+      if (i == 0){
+        houseHeaderPic = picPrefix + i + '.jpg'
+      }else{
+        housePicList.push(picPrefix + i + '.jpg')
+      }
+      houseTotalPics.push(picPrefix + i + '.jpg')
     }
-    var url = picList[indexId]
 
     this.setData({
-      housePicList:picList
+      picList: housePicList,
+      picHeader:houseHeaderPic
     })
 
     wx.setNavigationBarTitle({
       title: title,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { }
     })
   },
 

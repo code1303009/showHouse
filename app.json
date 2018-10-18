@@ -3,8 +3,8 @@
     "pages/map/map",
     "pages/photo/photo",
     "pages/detail/detail",
-    "pages/fullScreenPhoto/fullScreenPhoto",
-    "pages/logs/logs"        
+    "pages/logs/logs",
+    "pages/picCollectionView/picCollectionView"        
   ],
   "tabBar": {
     "color": "#9E9E9E",

@@ -9,6 +9,12 @@ Page({
     picHeader:"",
     picList:[]
   },
+  lookBigHeader:function(e){
+    wx.previewImage({
+      current: 0,
+      urls: houseTotalPics,
+    })
+  },
   /**
    * 查看大图
   */

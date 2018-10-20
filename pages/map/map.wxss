@@ -49,7 +49,7 @@
 }
 
 .modal-description{
-  padding-top: 5rpx;
+  padding-top: 10rpx;
   padding-left: 5%;
   padding-right: 5%;
   font-size: 22rpx;

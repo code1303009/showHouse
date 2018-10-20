@@ -9,7 +9,8 @@
 
 <image style="width: 100%; height:35%;background-color: #eeeeee;" mode='aspectFill' src="{{houseCoverImage}}" bindtap="gotoPicCollectionView"/>
 
-<scroll-view scroll-y style='height:63%'>
+<image style="width:100%;height:55%;margin-top:5%;background-color: #eeeeee;" mode='aspectFit' src="{{houseSpotImage}}" bindtap="lookEssayDescription"/>
+<!-- <scroll-view scroll-y style='height:63%'>
   <text class='house-details-content'>{{houseDescription}}</text>
-</scroll-view>
+</scroll-view> -->
 </view>

@@ -2,10 +2,11 @@ var naviTitle = "民宿详情";
 var houseDetailList = []
 var houseDetailModel = {}
 var picList = []
-
+var houseSpotPicList = []
 Page({
   data: {
     houseCoverImage:"",
+    houseSpotImage:"",
     houseDetailPicList: [],
     houseDescription:"",
     indicatorDots: false,
@@ -42,7 +43,12 @@ Page({
     //   urls: houseDetailList,
     // })
   },
-
+  lookEssayDescription:function(e){
+    wx.previewImage({
+      current: 0,
+      urls: houseSpotPicList,
+    })
+  },
   gotoPicCollectionView: function (e) {
     wx.navigateTo({
       url: '../picCollectionView/picCollectionView?naviTitle=' + naviTitle + '&picPrefix=' + houseDetailModel.housePicPrefix + '&picCount=' + houseDetailModel.housePicCount,
@@ -67,6 +73,13 @@ Page({
           imgList.push(houseDetailModel["housePicPrefix"] + i + '.jpg')
         }
 
+        var spotlist = ["lightspot", "bedroom", "kitchen", "traffic","parking"]
+        var tempSpotList = []
+        for (var i = 0; i < spotlist.length; i++) {
+          tempSpotList.push(houseDetailModel["housePicPrefix"]+ spotlist[i] + '.jpg')
+        }
+        houseSpotPicList = tempSpotList
+        
         var descStr = houseDetailModel.houseDescription.split('&hc').join('\n')
 
         wx.setNavigationBarTitle({
@@ -79,6 +92,7 @@ Page({
           houseCoverImage:imgList[0],
           houseDetailPicList: imgList,
           houseDescription:descStr,
+          houseSpotImage:houseSpotPicList[0]
         })
       }
     })

@@ -24,7 +24,13 @@ Page({
 
     db.collection('cameraShowList').doc().get({
       success:function(res){
-        houseList = res.data["houseCardList"],
+        houseList = res.data["houseCardList"]
+        for (var i = 0; i < houseList.length;i++)
+        {
+          var desc = houseList[i].houseDescription.split('&hc').join('\n')
+          houseList[i].houseDescription = desc
+        }
+
         that.setData({
           listArray: houseList,
         })

@@ -1,5 +1,6 @@
 
-var houseLocations = [];
+var houseLocations = []
+// "两室一厅，89平，2大床+1沙发+1榻榻米&hc地铁1号线，东中街站，香檀1917&hc近中街，燃气热水器不间断，大投影，联网空调&hc适合想逛附近景点的亲~推荐4 - 6人入住"
 /**
  * 页面代码
 */
@@ -13,6 +14,7 @@ Page({
       description0:'这是描述0',
       description1: '这是描述1',
       description2: '这是描述2',
+      description3: '这是描述3',
       price:'￥0'
     },
     Height: 0,
@@ -122,6 +124,7 @@ Page({
         description0: houseLocations[e.markerId].alertdesc0,
         description1: houseLocations[e.markerId].alertdesc1,
         description2: houseLocations[e.markerId].alertdesc2,
+        description3: houseLocations[e.markerId].alertdesc3,
         price: '￥'+houseLocations[e.markerId].housePrice+'/晚'
       }
     })

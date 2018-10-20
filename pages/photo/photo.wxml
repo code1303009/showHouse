@@ -5,7 +5,7 @@
         <view class='content'>
            <view class='title'>{{item.houseName}}</view>
            <view class='message'>
-             <label class='desctext'>{{item.houseDescription}}</label>
+             <text class='desctext'>{{item.houseDescription}}</text>
            </view>
         </view>
   </view>

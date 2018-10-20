@@ -19,8 +19,9 @@ show-location style="width: 100%; height: {{view.Height}}px;">
 <cover-view class="modal-dialog" animation="{{animationData}}" wx:if="{{showModal.show}}" bindtap="gotoDetailVC" id>
     <cover-image class="alert-image" src="{{showModal.pic}}"></cover-image>
     <cover-view class="modal-title">{{showModal.title}}</cover-view>
-    <cover-view class="modal-price">{{showModal.price}}</cover-view>
+    <!-- <cover-view class="modal-price">{{showModal.price}}</cover-view> -->
     <cover-view class="modal-description">{{showModal.description0}}</cover-view>
     <cover-view class="modal-description">{{showModal.description1}}</cover-view>
     <cover-view class="modal-description">{{showModal.description2}}</cover-view>
+    <cover-view class="modal-description">{{showModal.description3}}</cover-view>
 </cover-view>

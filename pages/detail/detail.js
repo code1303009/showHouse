@@ -44,10 +44,13 @@ Page({
     // })
   },
   lookEssayDescription:function(e){
-    wx.previewImage({
-      current: 0,
-      urls: houseSpotPicList,
+    wx.navigateTo({
+      url: '../textpicCollectionView/textpicCollectionView?naviTitle=' + naviTitle + '&houseDescPicList=' + houseSpotPicList,
     })
+    // wx.previewImage({
+    //   current: 0,
+    //   urls: houseSpotPicList,
+    // })
   },
   gotoPicCollectionView: function (e) {
     wx.navigateTo({
@@ -73,10 +76,10 @@ Page({
           imgList.push(houseDetailModel["housePicPrefix"] + i + '.jpg')
         }
 
-        var spotlist = ["lightspot", "bedroom", "kitchen", "traffic","parking"]
+        var spotlist = ["lightspot", "bedroom", "kitchen", "traffic","notice"]
         var tempSpotList = []
         for (var i = 0; i < spotlist.length; i++) {
-          tempSpotList.push(houseDetailModel["housePicPrefix"]+ spotlist[i] + '.jpg')
+          tempSpotList.push(houseDetailModel["housePicPrefix"]+ spotlist[i] + '.jpeg')
         }
         houseSpotPicList = tempSpotList
         

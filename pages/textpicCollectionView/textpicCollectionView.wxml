@@ -1,0 +1,6 @@
+<scroll-view class='picCollection' scroll-y>
+
+  <image class="pic-header-image" src="{{houseDescHeader}}" mode='aspectFill' bindtap="lookBigHeader"></image>
+  <image class="pic-sub-image" wx:for="{{houseDescList}}" wx:key="*this" src="{{item}}" id="{{item}}" bindtap="lookBigPic" mode='aspectFill'></image>
+
+</scroll-view>

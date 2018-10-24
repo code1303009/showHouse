@@ -4,7 +4,8 @@
     "pages/photo/photo",
     "pages/detail/detail",
     "pages/logs/logs",
-    "pages/picCollectionView/picCollectionView"        
+    "pages/picCollectionView/picCollectionView",
+    "pages/textpicCollectionView/textpicCollectionView"      
   ],
   "tabBar": {
     "color": "#9E9E9E",

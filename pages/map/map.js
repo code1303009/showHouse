@@ -18,9 +18,10 @@ Page({
       price:'￥0'
     },
     Height: 0,
-    scale: 16,
-    latitude: "",
-    longitude: "",
+    scale: 13,
+    // 41.8515070000, 123.4272680000 北陵公园
+    latitude: 41.851507,
+    longitude: 123.427268,
     markers: [],
     controls: [{
       id: 1,
@@ -45,7 +46,7 @@ Page({
       clickable: true
     }
     ],
-    circles: []
+    circles: [],
   },
 
   onLoad: function () {
@@ -83,8 +84,8 @@ Page({
               markerlist.push(marker)
             }
             _this.setData({
-              latitude: res.latitude,
-              longitude: res.longitude,
+              // latitude: res.latitude,
+              // longitude: res.longitude,
               markers: markerlist
             })
           }

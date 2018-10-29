@@ -17,7 +17,12 @@ Page({
 
   onLoad:function(options){
     var that = this
-    
+    //分享
+    wx.showShareMenu({
+      withShareTicket: true
+    })
+
+    //云开发数据库 拉取数据
     const db = wx.cloud.database({
       env:'publish-c39860'
     })

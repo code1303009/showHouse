@@ -19,38 +19,21 @@ Page({
     },
     Height: 0,
     scale: 13,
-    // 41.8515070000, 123.4272680000 北陵公园
+    // 41.8515070000, 123.4002680000 北陵公园
     latitude: 41.851507,
-    longitude: 123.427268,
+    longitude: 123.400268,
     markers: [],
-    controls: [{
-      id: 1,
-      iconPath: '../../images/map-sub.png',
-      position: {
-        left: 0,
-        top:  50,
-        width: 40,
-        height: 40
-      },
-      clickable: true
-    },
-    {
-      id: 2,
-      iconPath: '../../images/map-add.png',
-      position: {
-        left: 40,
-        top: 50,
-        width: 40,
-        height: 40
-      },
-      clickable: true
-    }
-    ],
+    controls: [],
     circles: [],
   },
 
   onLoad: function () {
     var _this = this;
+    //分享
+    wx.showShareMenu({
+      withShareTicket: true
+    })
+
     // 1. 获取数据库引用
     const db = wx.cloud.database({
       env: 'publish-c39860'

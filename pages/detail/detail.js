@@ -61,6 +61,12 @@ Page({
   onLoad: function (options){
     var that = this
 
+    //分享
+    wx.showShareMenu({
+      withShareTicket: true
+    })
+
+    //数据库拉取数据
     const db = wx.cloud.database({
       env: 'publish-c39860'
     })

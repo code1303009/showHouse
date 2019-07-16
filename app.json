@@ -1,42 +1,44 @@
 {
-  "pages":[
+  "pages": [
     "pages/map/map",
     "pages/photo/photo",
     "pages/detail/detail",
     "pages/logs/logs",
     "pages/picCollectionView/picCollectionView",
-    "pages/textpicCollectionView/textpicCollectionView"      
+    "pages/textpicCollectionView/textpicCollectionView"
   ],
   "tabBar": {
     "color": "#9E9E9E",
     "selectedColor": "#f00",
     "backgroundColor": "#fff",
-    "borderStyle": "#ccc",
+    "borderStyle": "white",
     "position": "bottom",
     "list": [
-    {
-      "pagePath": "pages/map/map",
-      "text": "地图模式",
-      "iconPath": "images/map.png",
-      "selectedIconPath": "images/map.png"
-    },
-    {
-      "pagePath": "pages/photo/photo",
-      "text": "列表模式",
-      "iconPath": "images/house.png",
-      "selectedIconPath": "images/house.png"
-    }]
+      {
+        "pagePath": "pages/map/map",
+        "text": "地图模式",
+        "iconPath": "images/map.png",
+        "selectedIconPath": "images/map.png"
+      },
+      {
+        "pagePath": "pages/photo/photo",
+        "text": "列表模式",
+        "iconPath": "images/house.png",
+        "selectedIconPath": "images/house.png"
+      }
+    ]
   },
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "相册小程序",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "networkTimeout": {
     "request": 20000,
     "connectSocket": 20000,
     "uploadFile": 20000,
     "downloadFile": 20000
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
